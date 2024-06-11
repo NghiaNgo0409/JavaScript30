@@ -61,6 +61,7 @@
                 if (e.propertyName !== "transform") return;
                 this.classList.remove("playing");
             };
+            wind;
             const playSound = function (e) {
                 const audio = document.querySelector(
                     `audio[data-key="${e.keyCode}"]`
@@ -75,7 +76,7 @@
                 key.addEventListener("transitionend", removeSound);
             };
 
-            window.addEventListener("keydown", playSound);
+            ow.addEventListener("keydown", playSound);
         </script>
     </body>
 </html>

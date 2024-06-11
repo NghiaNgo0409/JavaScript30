@@ -40,7 +40,7 @@ html {
 }
 
 kbd {
-    display: block;
+    /* display: block; */
     font-size: 4rem;
 }
 
