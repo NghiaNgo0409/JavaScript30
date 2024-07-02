@@ -32,16 +32,10 @@ function handleProgressClick(e) {
     video.currentTime = scrubTime;
 }
 
-let mouseDown = false;
 video.addEventListener("click", togglePlay);
 video.addEventListener("timeupdate", handleProgress);
 progress.addEventListener("click", handleProgressClick);
-progress.addEventListener("mousedown", () => (mouseDown = true));
-progress.addEventListener("mouseup", () => (mouseDown = false));
-progress.addEventListener(
-    "mousemove",
-    (e) => mouseDown && handleProgressClick(e)
-);
+progress.addEventListener("mousemove", handleProgressClick);
 toggle.addEventListener("click", togglePlay);
 skippers.forEach((skipper) => skipper.addEventListener("click", skip));
 sliders.forEach((slider) =>

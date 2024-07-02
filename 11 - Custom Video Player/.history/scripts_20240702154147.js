@@ -22,31 +22,12 @@ function handleRangeUpdate() {
     video[this.name] = this.value;
 }
 
-function handleProgress() {
-    const percent = (video.currentTime / video.duration) * 100;
-    progressBar.style.flexBasis = `${percent}%`;
-}
-
-function handleProgressClick(e) {
-    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
-    video.currentTime = scrubTime;
-}
-
-let mouseDown = false;
 video.addEventListener("click", togglePlay);
-video.addEventListener("timeupdate", handleProgress);
-progress.addEventListener("click", handleProgressClick);
-progress.addEventListener("mousedown", () => (mouseDown = true));
-progress.addEventListener("mouseup", () => (mouseDown = false));
-progress.addEventListener(
-    "mousemove",
-    (e) => mouseDown && handleProgressClick(e)
-);
 toggle.addEventListener("click", togglePlay);
 skippers.forEach((skipper) => skipper.addEventListener("click", skip));
 sliders.forEach((slider) =>
     slider.addEventListener("click", handleRangeUpdate)
 );
 sliders.forEach((slider) =>
-    slider.addEventListener("mousemove", handleRangeUpdate)
+    slider.addEventListener("mouseover", handleRangeUpdate)
 );
