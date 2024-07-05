@@ -92,16 +92,7 @@
                     .join('');
             }
 
-            function toggleDone(e) {
-                if (!e.target.matches('input[type="checkbox"]')) return;
-                const index = e.target.dataset.index;
-                items[index].done = e.target.checked;
-                localStorage.setItem('items', JSON.stringify(items));
-                populateList(items, itemsList);
-            }
-
             addItems.addEventListener('submit', addItem);
-            itemsList.addEventListener('click', toggleDone);
 
             populateList(items, itemsList);
         </script>
